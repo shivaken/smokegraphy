@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'pathname'
+require 'erb'
+
+SMOKEGRAPHY_LIBDIR = Pathname.new("#{__FILE__}/..").realpath.dirname
+
+if ARGV[0] == "new" && ARGV[1] then
+  basedir = ARGV[1]
+  testname = ARGV[2]
+  
+  def prepare_dir(dir)
+    FileUtils.mkdir(dir, :verbose => true) if !File.exist? dir
+  end
+
+  prepare_dir(basedir) if !File.exist? basedir
+
+  FileUtils.cd basedir
+  prepare_dir("tests")
+
+  dest = "tests/test_#{testname}.rb"
+  if testname && !File.exist?(dest) then
+    File.open(dest, "w") do |out|
+      out << ERB.new(File.new("#{SMOKEGRAPHY_LIBDIR}/templates/flunking.rb").read).result(binding)
+    end
+  end
+
+  prepare_dir("source")
+  if testname then
+    prepare_dir("source/#{testname}") 
+    dest = "source/#{testname}/index.html"
+    if !File.exist?(dest) then
+      File.open(dest, "w") do |out|
+        out << ERB.new(File.new("#{SMOKEGRAPHY_LIBDIR}/templates/flunking.html").read).result(binding)
+      end
+    end
+  end
+
+  prepare_dir("expected")
+  prepare_dir("expected/#{testname}") if testname
+  
+  FileUtils.copy "#{SMOKEGRAPHY_LIBDIR}/templates/config.yaml.example", "config.yaml"  
+  FileUtils.copy "#{SMOKEGRAPHY_LIBDIR}/templates/runner.rb", "runner.rb"
+  
+else
+  print "Error: invalid argument\n"
+  exit 1
+end

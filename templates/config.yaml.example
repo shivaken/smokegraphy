@@ -1,0 +1,13 @@
+deploy: file
+
+file:
+   path: /var/www/html
+
+ftp:
+   server: localhost
+   username: test
+   password: test
+
+http:
+   server: localhost
+   document_root: /var/www/html
