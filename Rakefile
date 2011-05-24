@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "smokegraphy"
   gem.homepage = "http://github.com/shivaken/smokegraphy"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{ web access testing framework }
+  gem.description = %Q{ Web testing framework, That deploies html htaccess and cgi before test. }
   gem.email = "otsuka@paperboy.co.jp"
   gem.authors = ["OTSUKA Kenichi"]
   # dependencies defined in Gemfile
