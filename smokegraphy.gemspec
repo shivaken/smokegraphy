@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
     "lib/smokegraphy/resource_controller/file_resource_controller.rb",
     "lib/smokegraphy/resource_controller/ftp_resource_controller.rb",
     "lib/smokegraphy/test_case.rb",
+    "smokegraphy.gemspec",
     "templates/config.yaml.example",
     "templates/flunking.html",
     "templates/flunking.rb",
