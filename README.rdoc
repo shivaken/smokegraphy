@@ -14,6 +14,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 OTSUKA Kenichi. See LICENSE.txt for
+Copyright (c) 2011 Kenichi Otsuka. See LICENSE.txt for
 further details.
 

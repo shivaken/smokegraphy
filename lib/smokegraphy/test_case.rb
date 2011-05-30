@@ -38,7 +38,7 @@ module Smokegraphy
     end
 
     def teardown
-      @@rc.cleanup
+      # @@rc.cleanup
     end
 
     def prepare
@@ -64,7 +64,14 @@ module Smokegraphy
       begin
 
         # prepare request object
-        uri = options[:request_uri] ? options[:request_uri] : "/#{@filename}"
+        uri = "/"
+        if @@config["http"]["base_path"] then
+          uri << @@config["http"]["base_path"]
+          uri << "/"
+        end
+
+        uri << (options[:request_uri] ? options[:request_uri] : @filename)
+          
         uri << "?%s" % options[:query].map { |k,v| "%s=%s" % [k,v] }.sort.join("&") if options[:query]
 
         if (options[:method] == :post) then

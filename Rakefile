@@ -19,8 +19,9 @@ Jeweler::Tasks.new do |gem|
   gem.license = "MIT"
   gem.summary = %Q{ web access testing framework }
   gem.description = %Q{ Web testing framework, That deploies html htaccess and cgi before test. }
-  gem.email = "otsuka@paperboy.co.jp"
-  gem.authors = ["OTSUKA Kenichi"]
+  gem.email = "shivaken@gmail.com"
+  gem.authors = ["Kenichi Otsuka"]
+  gem.rubyforge_project = "smokegraphy"
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

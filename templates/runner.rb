@@ -2,6 +2,6 @@
 
 require 'test/unit'
 require 'rubygems'
-gem 'smokegraphy'
+require 'smokegraphy'
 
 Test::Unit::AutoRunner.run(true, './tests')

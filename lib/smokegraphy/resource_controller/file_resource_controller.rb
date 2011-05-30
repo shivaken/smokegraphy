@@ -26,10 +26,11 @@ module Smokegraphy
 
           File.open(destfile_path, "w") { |out| out << erb.result(binding) }
           @uploaded << destfile_path if !(@uploaded.include? destfile_path)
+
         else
           raise "no such file: #{source}"
         end
-        
+
       rescue => evar
         raise "Failed to copy #{source}: #{evar}"
       end
